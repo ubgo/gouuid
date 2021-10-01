@@ -76,13 +76,23 @@ func PgStringArrayToUUIDSlide(array string) []uuid.UUID {
 	return results
 }
 
-// Conver custom types to uuid.UUID[] e.g. type UUIDArray []uuid.UUID so we can pass
+// Convert custom types to uuid.UUID[] e.g. type UUIDArray []uuid.UUID so we can pass
 // UUIDArray as slice and will return uuid.UUID[]
 func NamedTypeSliceToUUIDSlice(values []uuid.UUID) []uuid.UUID {
 	var result []uuid.UUID
 	result = append(result, values...)
 	// for _, v := range values {
 	// }
+
+	return result
+}
+
+// Convert slide of UUIDs to String Slice
+func ToStringSlice(values []uuid.UUID) []string {
+	var result []string
+	for _, v := range values {
+		result = append(result, v.String())
+	}
 
 	return result
 }
