@@ -69,7 +69,7 @@ func PgStringArrayToUUIDSlide(array string) []uuid.UUID {
 		s = strings.Replace(s, ",", "", -1)
 
 		val, err := uuid.Parse(s)
-		if err != nil {
+		if err == nil {
 			results = append(results, val)
 		}
 	}
